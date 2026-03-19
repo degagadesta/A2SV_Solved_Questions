@@ -11,20 +11,10 @@ class Solution:
             root = t
             return root
         temp = root
-        while temp :
-            if temp.val > val :
-                if not temp.left :
-                    t = TreeNode(val)
-                    temp.left = t
-                    break
-                else:
-                    temp = temp.left
-            else :
-                if not temp.right :
-                    t = TreeNode(val)
-                    temp.right = t
-                    break
-                else:
-                    temp = temp.right 
+        if temp.val > val :
+            root.left = self.insertIntoBST(temp.left,val)
+        else :
+            root.right = self.insertIntoBST(temp.right,val)
+   
         return root                   
         
